@@ -1,3 +1,13 @@
+/* Arduino Password
+ * 
+ * This program reads a password sequence from
+ * the sensors on the Esplora, and if the sequence
+ * is correct, it unlocks.
+ *
+ * Author: Owen Brasier
+ * Date: November 2015
+ */
+
 #include <Esplora.h>
 
 #define SIZE 6  // the number of buttons in our password
@@ -30,7 +40,9 @@ void loop() {
   }
 }
 
-// reset to start the password again
+/* 
+ * Reset to start the password again
+ */
 void reset() {
   Serial.println("Resetting, try again!");
   count = 0;
@@ -62,8 +74,10 @@ void checkButton(int n) {
   }
 }
 
-// this is the checkPassword function... we read through all the sensors
-// we want. In this case, we check each of the buttons.
+/*
+ * This is the checkPassword function... we read through all the sensors
+ * we want. In this case, we check each of the buttons.
+ */
 void checkPassword() {
   // loop through all the buttons
   for(int i = 1; i <= 4; i++) {
@@ -75,7 +89,9 @@ void checkPassword() {
   }
 }
 
-// we are unlocked, now you can actually run the code here.
+/*
+ * We are unlocked, now you can actually run the code here.
+ */ 
 void unlocked() {
   Serial.println("Unlocked!");
 }
